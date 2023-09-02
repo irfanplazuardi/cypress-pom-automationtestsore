@@ -13,7 +13,7 @@
 
 ### Installment Steps:
 1. open vs code with selected folder and use terminal from vscode (gitBash)
-2. ``npm init -y`` [for installation package.json]
+2. ``npm init -y`` for installation package.jsont 
 3. ``npm install cypress --save-dev cypress@12.17.0``
 4. ``npm i npx``
 5. ``npx cypress open``
