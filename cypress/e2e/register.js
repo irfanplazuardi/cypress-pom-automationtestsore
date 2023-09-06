@@ -46,8 +46,8 @@ describe('Register new account', () => {
     register.newsletter()
     register.agree()
     register.continue()
-    register.accountCreated(firstName)
-
+    register.accountCreated()
+    home.loginNameDisplay(firstName)
   });
 
   it('Register new account with empty data', () => {
@@ -94,7 +94,8 @@ describe('Register new account', () => {
     register.newsletter()
     register.agree()
     register.continue()
-    register.accountCreated(firstName)
+    register.accountCreated()
+    home.loginNameDisplay(firstName)
   });
 
   it('Register new account with existing email account', () => {

@@ -1,3 +1,5 @@
+/// <reference types="Cypress" />
+
 class register_po {
 
     continue() {
@@ -72,10 +74,9 @@ class register_po {
         cy.get('#AccountFrm_agree').click()
     }
 
-    accountCreated(name) {
+    accountCreated() {
         cy.get("span.maintext").should("contain", "Your Account Has Been Created!")
         cy.contains("a", "Continue").click()
-        cy.get(".menu_text").should("contain", "Welcome back " + name)
     }
 
     errorMessage() {
