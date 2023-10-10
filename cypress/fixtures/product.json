@@ -1,0 +1,100 @@
+{
+  "home": [
+    {
+      "name": "Skinsheen Bronzer Stick",
+      "price": {
+        "USD": "$29.50",
+        "Pounds": "15.07",
+        "Euro": "27.69"
+      },
+      "status": "sale"
+    },
+    {
+      "name": "BeneFit Girl Meets Pearl",
+      "price": {
+        "USD": "17.83",
+        "Pounds": "23.40",
+        "Euro": "27.69"
+      },
+      "status": "out of stock"
+    },
+    {
+      "name": "Benefit Bella Bamba",
+      "price": {
+        "USD": "$28.00",
+        "Pounds": "22.21",
+        "Euro": "26.28"
+      },
+      "status": "sale"
+    }
+  ],
+  "haircare": {
+    "conditioner": [
+      {
+        "name": "Seaweed Conditioner",
+        "price": {
+          "USD": "17.83",
+          "Pounds": "15.07",
+          "Euro": "17.83"
+        },
+        "status": "normal"
+      },
+      {
+        "name": "Pro-V Color Hair Solutions Color Preserve Shine Conditioner",
+        "price": {
+          "USD": "8.23",
+          "Pounds": "6.53",
+          "Euro": "7.72"
+        },
+        "status": "normal"
+      },
+      {
+        "name": "Pantene Pro-V Conditioner, Classic Care",
+        "price": {
+          "USD": "$11.45",
+          "Pounds": "9.08",
+          "Euro": "10.75"
+        },
+        "status": "normal"
+      },
+      {
+        "name": "Highlighting Expressions",
+        "price": {
+          "USD": "$33.00",
+          "Pounds": "26.18",
+          "Euro": "30.97"
+        },
+        "status": "normal"
+      },
+      {
+        "name": "Brunette expressions Conditioner",
+        "price": {
+          "USD": "$24.00",
+          "Pounds": "19.04",
+          "Euro": "22.52"
+        },
+        "status": "sale"
+      }
+    ],
+    "Shampoo": [
+      {
+        "name": "Curls to straight Shampoo",
+        "price": {
+          "USD": "$4.00",
+          "Pounds": "3.17",
+          "Euro": "3.75"
+        },
+        "status": "normal"
+      },
+      {
+        "name": "Eau Parfumee au The Vert Shampoo",
+        "price": {
+          "USD": "$31.00",
+          "Pounds": "24.59",
+          "Euro": "29.09"
+        },
+        "status": "normal"
+      }
+    ]
+  }
+}
