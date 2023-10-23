@@ -1,24 +1,6 @@
 /// <reference types="Cypress" />
 
 class cart_po {
-  addItemToCart(prodname) {
-    //not sync with title array and button array
-    cy.get(".prdocutname").each(($el, index, $list) => {
-      if ($el.text() === prodname) {
-        cy.log("element: " + $el.text());
-        cy.get(".productcart").eq(index).click();
-        return false;
-        // .each(($button, indexButton, $listButton) => {
-        //   cy.wrap($button).click();
-        // });
-      }
-    });
-  }
-
-  clickCart() {
-    cy.get(".dropdown-toggle").contains("Items").click();
-  }
-
   assertName(name) {
     cy.get(".table").first().find("tbody tr th").should("contain", "Name");
     cy.get("tbody tr td").contains(name).should("have.text", name);
@@ -37,39 +19,46 @@ class cart_po {
     cy.get("#cart_update").click();
   }
 
-  removeItem() {
-    cy.get(".btn-sm").click();
+  removeItem(index) {
+    cy.get(".btn-sm").eq(index).click();
   }
 
-  editQuantity(amount) {
-    cy.get("#cart_quantity74").type(amount);
+  assertEmptyCart() {
+    cy.get(".contentpanel").should("contain", "Your shopping cart is empty!");
+  }
+
+  editQuantity(index, amount) {
+    cy.get(".short").eq(index).clear().type(amount);
+  }
+
+  totalPrice(index) {
+    let expectedTotalPrice;
+    let actualTotalPrice;
+
+    cy.get("tbody > :nth-child(2) > :nth-child(4)")
+      .invoke("text")
+      .then((priceText) => {
+        const price = parseFloat(priceText.replace(/[$€￡\D]/g, ""));
+        cy.log(price);
+        cy.get(".short")
+          .eq(index)
+          .invoke("val")
+          .then((quantityText) => {
+            const quantity = parseFloat(quantityText);
+            cy.log(quantity);
+            expectedTotalPrice = price * quantity;
+            cy.get("tbody > :nth-child(2) > :nth-child(6)")
+              .invoke("text")
+              .then((totalPriceText) => {
+                actualTotalPrice = parseFloat(totalPriceText.replace(/[$€￡\D]/g, ""));
+                expect(actualTotalPrice).to.equal(expectedTotalPrice);
+              });
+          });
+      });
   }
 
   continueShopping() {
     cy.get(".btn").contains("Continue Shopping");
-  }
-
-  itemDescription(prodname) {
-    cy.get(".prdocutname").contains(prodname).click();
-  }
-
-  addToCartButton() {
-    cy.get(".productpagecart").click();
-  }
-
-  outOfStock() {
-    cy.get(".nostock").contains("Out of Stock").should("have.css", "background-color", "rgb(204, 204, 204)");
-  }
-
-  assertDiscountItem() {
-    cy.get(".sale").should("be.visible");
-    cy.get(".priceold").should("have.css", "text-decoration", "line-through");
-  }
-
-  selectTab(tabname, subname) {
-    //code cannot show hidden menu after hover
-    cy.get(".categorymenu").contains(tabname).invoke("show");
-    cy.get(".subcategories").contains(subname).click();
   }
 }
 

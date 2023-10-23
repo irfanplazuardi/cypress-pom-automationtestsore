@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "cypress": "^12.17.0",
+    "cypress-real-events": "^1.10.3",
     "npx": "^10.2.2"
   },
   "name": "automation-store",
